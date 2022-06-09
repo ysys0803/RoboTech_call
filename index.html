@@ -1,0 +1,57 @@
+<p id="Clock1" style="display: inline"></p>
+<p id="Clock2" style="display: inline"></p>
+<p id="Clock3" style="display: inline"></p>
+<script type="text/javascript">
+setInterval('showClock1()',50);
+function showClock1() {
+var DWs = new Array('Sun.','Mon.','Tue.','Wed.','Thu.','Fri.','Sat.');
+var Now = new Date();
+var YY = Now.getYear();
+if (YY < 2000) { YY += 1900; }
+var MM = set0( Now.getMonth() + 1 );
+var DD = set0( Now.getDate() );
+var DW = DWs[ Now.getDay() ];
+var hh = set0( Now.getHours() );
+var mm = set0( Now.getMinutes() );
+var ss = set0( Now.getSeconds() );
+var ms = set0( Now.getMilliseconds() );
+var CLOCK = (ss*1000 + ms) % 2500
+var RTime1 = ' ' + hh + ':' + mm + ':' + ss + ':' + ms + ' ';
+
+document.fgColor = "#202020";
+document.bgColor = "#E0E0E0";
+if (1300 < CLOCK) {
+    document.fgColor = "#E0E0E0";
+    document.bgColor = "#E02020";
+}
+
+document.getElementById("Clock1").innerHTML = RTime1+"<br>"+"<br>";
+
+var ROBOTECH_mat = new Array("ろ", "ー", "ー", "ぼ", "て", "っ", "く");
+var ROBOTECH_time = new Array(100, 300, 500, 700, 900, 1050, 1200);
+var ROBOTECH_str = ""
+for (let i = 0; i < 7; i++) {
+    if (ROBOTECH_time[i] < CLOCK) {
+        ROBOTECH_str = ROBOTECH_str + ROBOTECH_mat[i]
+    }
+}
+document.getElementById("Clock2").innerHTML = ROBOTECH_str+"<br>";
+
+var CRAP_mat = new Array("👏", "👏", "👏", "👏", "👏");
+var CRAP_time = new Array(1400, 1600, 1900, 2200, 2400);
+var CRAP_str = ""
+for (let i = 0; i < 5; i++) {
+    if (CRAP_time[i] < CLOCK) {
+        CRAP_str = CRAP_str + CRAP_mat[i]
+    }
+}
+document.getElementById("Clock3").innerHTML = CRAP_str+"<br>";
+
+}
+function set0(num) {
+var ret;
+if( num < 10 ) { ret = "0" + num; }
+else { ret = num; }
+return ret;
+}
+</script>
