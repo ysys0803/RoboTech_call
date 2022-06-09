@@ -5,10 +5,10 @@
 setInterval('showClock1()',50);
 function showClock1() {
 var Now = new Date();
-var ss = set0( Now.getSeconds() );
-var ms = set0( Now.getMilliseconds() );
+var ss = Now.getSeconds();
+var ms = Now.getMilliseconds();
 var CLOCK = (ss*1000 + ms) % 2858
-var RTime1 = ' ' + set0(ss) + '"' + set00(set0(ms)) + ' ';
+var RTime1 = ' ' + set0(ss) + '"' + set00(ms) + ' ';
 
 document.fgColor = "#202020";
 document.bgColor = "#E0E0E0";
@@ -55,7 +55,8 @@ return ret;
 
 function set00(num) {
 var ret;
-if( num < 100 ) { ret = "0" + num; }
+if( num < 10 ) { ret = "00" + num; }
+else if( num < 100 ) { ret = "0" + num; }
 else { ret = num; }
 return ret;
 }
