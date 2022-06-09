@@ -2,21 +2,13 @@
 <p id="Clock2" style="display: inline"></p>
 <p id="Clock3" style="display: inline"></p>
 <script type="text/javascript">
-setInterval('showClock1()',100);
+setInterval('showClock1()',50);
 function showClock1() {
-var DWs = new Array('Sun.','Mon.','Tue.','Wed.','Thu.','Fri.','Sat.');
 var Now = new Date();
-var YY = Now.getYear();
-if (YY < 2000) { YY += 1900; }
-var MM = set0( Now.getMonth() + 1 );
-var DD = set0( Now.getDate() );
-var DW = DWs[ Now.getDay() ];
-var hh = set0( Now.getHours() );
-var mm = set0( Now.getMinutes() );
 var ss = set0( Now.getSeconds() );
 var ms = set0( Now.getMilliseconds() );
 var CLOCK = (ss*1000 + ms) % 2858
-var RTime1 = ' ' + hh + ':' + mm + ':' + ss + ':' + ms + ' ';
+var RTime1 = ' ' + set0(ss) + '"' + set00(set0(ms)) + ' ';
 
 document.fgColor = "#202020";
 document.bgColor = "#E0E0E0";
@@ -34,6 +26,9 @@ for (let i = 0; i < 7; i++) {
     if (ROBOTECH_time[i] < CLOCK) {
         ROBOTECH_str = ROBOTECH_str + ROBOTECH_mat[i]
     }
+    else{
+        break
+    }
 }
 document.getElementById("Clock2").innerHTML = ROBOTECH_str+"<br>";
 
@@ -44,14 +39,25 @@ for (let i = 0; i < 5; i++) {
     if (CRAP_time[i] < CLOCK) {
         CRAP_str = CRAP_str + CRAP_mat[i]
     }
+    else{
+        break
+    }
 }
-document.getElementById("Clock3").innerHTML = CRAP_str+"<br>";
+document.getElementById("Clock3").innerHTML = CRAP_str+"<br><br><a href=“https://www.nict.go.jp/JST/JST5.html”>内蔵時計が正確かを確認</a>";
+}
 
-}
 function set0(num) {
 var ret;
 if( num < 10 ) { ret = "0" + num; }
 else { ret = num; }
 return ret;
 }
+
+function set00(num) {
+var ret;
+if( num < 100 ) { ret = "0" + num; }
+else { ret = num; }
+return ret;
+}
+
 </script>
