@@ -2,7 +2,7 @@
 <p id="Clock2" style="display: inline"></p>
 <p id="Clock3" style="display: inline"></p>
 <script type="text/javascript">
-setInterval('showClock1()',50);
+setInterval('showClock1()',100);
 function showClock1() {
 var DWs = new Array('Sun.','Mon.','Tue.','Wed.','Thu.','Fri.','Sat.');
 var Now = new Date();
@@ -15,12 +15,12 @@ var hh = set0( Now.getHours() );
 var mm = set0( Now.getMinutes() );
 var ss = set0( Now.getSeconds() );
 var ms = set0( Now.getMilliseconds() );
-var CLOCK = (ss*1000 + ms) % 2500
+var CLOCK = (ss*1000 + ms) % 2858
 var RTime1 = ' ' + hh + ':' + mm + ':' + ss + ':' + ms + ' ';
 
 document.fgColor = "#202020";
 document.bgColor = "#E0E0E0";
-if (1300 < CLOCK) {
+if (1450 < CLOCK) {
     document.fgColor = "#E0E0E0";
     document.bgColor = "#E02020";
 }
@@ -28,7 +28,7 @@ if (1300 < CLOCK) {
 document.getElementById("Clock1").innerHTML = RTime1+"<br>"+"<br>";
 
 var ROBOTECH_mat = new Array("ろ", "ー", "ー", "ぼ", "て", "っ", "く");
-var ROBOTECH_time = new Array(100, 300, 500, 700, 900, 1050, 1200);
+var ROBOTECH_time = new Array(100, 350, 600, 800, 1000, 1150, 1300);
 var ROBOTECH_str = ""
 for (let i = 0; i < 7; i++) {
     if (ROBOTECH_time[i] < CLOCK) {
@@ -38,7 +38,7 @@ for (let i = 0; i < 7; i++) {
 document.getElementById("Clock2").innerHTML = ROBOTECH_str+"<br>";
 
 var CRAP_mat = new Array("👏", "👏", "👏", "👏", "👏");
-var CRAP_time = new Array(1400, 1600, 1900, 2200, 2400);
+var CRAP_time = new Array(1600, 1800, 2100, 2400, 2600);
 var CRAP_str = ""
 for (let i = 0; i < 5; i++) {
     if (CRAP_time[i] < CLOCK) {
