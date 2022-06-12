@@ -10,11 +10,11 @@ var ms = Now.getMilliseconds();
 var CLOCK = (ss*1000 + ms) % 2858
 var RTime1 = ' ' + set0(ss) + '"' + set00(ms) + ' ';
 
-document.fgColor = "#202020";
+document.fgColor = "#000000";
 document.bgColor = "#E0E0E0";
 if (1450 < CLOCK) {
     document.fgColor = "#E0E0E0";
-    document.bgColor = "#E02020";
+    document.bgColor = "#FF0000";
 }
 
 document.getElementById("Clock1").innerHTML = RTime1+"<br>"+"<br>";
